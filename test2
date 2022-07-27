@@ -1,0 +1,22 @@
+cardCount ,number = input().split()
+cardCount = int(cardCount)
+number = int(number)
+
+cardArray = []
+cardArray = list(map(int, input().split()))
+
+blackJack = []
+for _ in range(cardCount - 2):
+    for __ in range(_, cardCount - 1):
+        for ___ in range(__, cardCount):
+            blackJack.append(cardArray[_] + cardArray[__] + cardArray[___])
+
+blackJack.sort()
+blackJack.reverse()
+minFind = []
+for _ in range(len(blackJack)):
+    if number - blackJack[_] > 0:
+        minFind.append(blackJack[_])
+
+minFind.sort()
+print(minFind[-1])
